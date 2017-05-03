@@ -54,20 +54,8 @@ public class TreeFactory {
         for(int i =0;i<list.size();i++){
             strings[i]=list.get(i);
         }
-        print(strings);
         return strings;
         }
-
-    public static void print(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (i == array.length-1){
-                System.out.print(array[i]);
-            }
-            else{
-                System.out.print(array[i] + ", ");
-            }
-        }
-    }
 
     public static QadTree createTree(String[] array){
         QadTree tree = new QadTree(array[0]);
