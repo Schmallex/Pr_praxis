@@ -1,2 +1,2 @@
 # Pr_praxis
-Testy test stuff
+Aufgaben für Programmierungskurs
