@@ -7,16 +7,13 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Created by Alex on 03.05.2017.
- */
 public class TreeFactory {
     public static void main(String[] args) {
         try{
-            QadTree baum =createTree("I://Treetest.txt");
-            //QadTree baum =buildTree();
+            QadTree baum =createTree("C:/java.project/PR2PRAXIS/data/Baum.txt");
+            QadTree baume =buildTree();
             baum.showInGUI();
-
+            baume.showInGUI();
         }
         catch (Exception e){
             System.err.print(e);
@@ -24,16 +21,17 @@ public class TreeFactory {
     }
 
     public static QadTree buildTree(){
-        QadTree tree = new QadTree("Bob");
-        tree.addChild("Bob","2,1");
-        tree.addChild("Bob","2,2");
-        tree.addChild("2,1","3,1");
-        tree.addChild("2,1","3,2");
-        tree.addChild("2,2","3,3");
-        tree.addChild("2,2","3,4");
-        tree.addChild("3,1","4,1");
-        tree.addChild("3,1","4,2");
-            return tree;
+        String[] s ={"Bob","Bobby","Bobbert","Bobbelia","Bobbasti","Barbara","Konnel","Komrad","Lama"};
+        QadTree tree = new QadTree(s[0]);
+        tree.addChild(s[0],s[1]);
+        tree.addChild(s[0],s[2]);
+        tree.addChild(s[1],s[3]);
+        tree.addChild(s[1],s[4]);
+        tree.addChild(s[2],s[5]);
+        tree.addChild(s[2],s[6]);
+        tree.addChild(s[3],s[7]);
+        tree.addChild(s[3],s[8]);
+        return tree;
         }
 
     public static QadTree createTree(String path)throws Exception{
@@ -57,7 +55,7 @@ public class TreeFactory {
         return strings;
         }
 
-    public static QadTree createTree(String[] array){
+    public static QadTree createTree(String[] array)throws Exception{
         QadTree tree = new QadTree(array[0]);
         for (int i = 1;i< array.length;i++){
             Scanner linescan = new Scanner(array[i]);
