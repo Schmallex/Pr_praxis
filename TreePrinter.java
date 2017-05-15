@@ -16,12 +16,12 @@ public class TreePrinter {
             PrintWriter out = new PrintWriter("I://test.txt");
             QadTree tree = TreeFactory.buildTree();
             Iterator<TreeNode> iterator = QadTreeWalker.preorderIterator(tree);
-            out.println();
+            oute.println();
             printTree(iterator,oute,10,true);
             printTree(tree,out,10);
         }
         catch(Exception e) {
-
+            System.err.print(e);
         }
     }
 
@@ -38,7 +38,7 @@ public class TreePrinter {
                 continue;
             }
             Enumeration<String> enu = node.children();
-           String s =(String.format("%-"+width+"s",node));
+            String s =(String.format("%-"+width+"s",node));
             while(enu.hasMoreElements()){
                 String g =(String.format("%-"+width+"s",enu.nextElement()));
                 s= s+g;
