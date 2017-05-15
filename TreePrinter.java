@@ -3,7 +3,6 @@ package a04;
 import a03.TreeFactory;
 import schimkat.berlin.lernhilfe2015ss.tree.QadTree;
 import schimkat.berlin.lernhilfe2015ss.tree.QadTreeWalker;
-
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -35,10 +34,8 @@ public class TreePrinter {
     public static void printTree(Iterator<TreeNode> iterator, PrintWriter out, int width, boolean skipLeafs) {
         while (iterator.hasNext()) {
             TreeNode node = iterator.next();
-            if (skipLeafs) {
-                if (node.isLeaf()) {
-                    continue;
-                }
+            if (skipLeafs && node.isLeaf()) {
+                continue;
             }
             Enumeration<String> enu = node.children();
            String s =(String.format("%-"+width+"s",node));
