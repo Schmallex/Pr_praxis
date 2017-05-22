@@ -6,31 +6,27 @@ public class WetterPrinterTest {
     public static void main(String[] args) {
         Wetterzustand w = new Wetterzustand();
         WetterPrinter print = new WetterPrinter();
-
-        Timer sonne = new Timer(50);
-        sonne.addActionListener(print);
-        sonne.setDelay(9000);
+        
+        Timer sonne = new Timer(9000);
         sonne.setActionCommand(w.sonne);
+        sonne.addActionListener(print);
 
-        Timer wolkig = new Timer(25);
-        wolkig.addActionListener(print);
-        wolkig.setDelay(12000);
+        Timer wolkig = new Timer(12000);
         wolkig.setActionCommand(w.wolkig);
+        wolkig.addActionListener(print);
 
-        Timer regen = new Timer(14);
-        regen.addActionListener(print);
-        regen.setDelay(15000);
+        Timer regen = new Timer(15000);
         regen.setActionCommand(w.regen);
+        regen.addActionListener(print);
 
-        Timer bedeckt = new Timer(10);
-        bedeckt.addActionListener(print);
-        bedeckt.setDelay(17000);
+        Timer bedeckt = new Timer(17000);
         bedeckt.setActionCommand(w.bedeckt);
+        bedeckt.addActionListener(print);    
 
-        Timer gewitter = new Timer(18);
-        gewitter.addActionListener(print);
-        gewitter.setDelay(20000);
+        Timer gewitter = new Timer(20000);
         gewitter.setActionCommand(w.gewitter);
+        gewitter.addActionListener(print);
+        
         while (true) {
             sonne.start();
             gewitter.start();
