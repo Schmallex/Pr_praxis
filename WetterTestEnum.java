@@ -1,6 +1,7 @@
-package a07.a05;
+package a07;
 
 import a05.WetterPrinter;
+import a07.WetterModel;
 import schimkat.berlin.lernhilfe2017ss.event.Timer;
 
 /**
@@ -12,8 +13,10 @@ public class WetterTestEnum {
         WetterAnsicht ansicht1 = new WetterAnsicht();
         WetterAnsicht ansicht2 = new WetterAnsicht();
 
-        WetterModel model1 = new WetterModel(ansicht1);
-        WetterModel model2 = new WetterModel(ansicht2);
+        WetterModel model1 = new WetterModel();
+        WetterModel model2 = new WetterModel();
+        model1.addListener(ansicht1);
+        model2.addListener(ansicht2);
 
         WetterEmpfangsZentrale w2= new WetterEmpfangsZentrale(model2);
         WetterEmpfangsZentrale w = new WetterEmpfangsZentrale(model1);

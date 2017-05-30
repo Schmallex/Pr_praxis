@@ -12,15 +12,16 @@ import java.util.List;
 public class WetterModel {
 
     private List<String> list;
-    private WetterAnsicht empfaenger ;
     private PropertyChangeSupport support ;
 
-    public WetterModel(WetterAnsicht ansicht){
+    public WetterModel(){
         this.list = new ArrayList<String>();
-        this.empfaenger= ansicht;
         this.support= new PropertyChangeSupport(this);
-        list.add("SONNIG");
-        support.addPropertyChangeListener(empfaenger);
+        list.add(WetterZustand.SONNIG.name());
+    }
+
+    public void addListener (WetterAnsicht ansicht){
+        support.addPropertyChangeListener(ansicht);
     }
 
     public String getWetterZustand() {

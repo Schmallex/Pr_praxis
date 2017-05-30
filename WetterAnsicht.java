@@ -12,39 +12,37 @@ import java.beans.PropertyChangeListener;
  */
 public class WetterAnsicht implements PropertyChangeListener {
 
-    private DirtyPainter painter ;
-    private WeatherSymbol symbol ;
+    private DirtyPainter painter;
+    private WeatherSymbol symbol;
 
-    public WetterAnsicht(){
-        this.painter= new DirtyPainter();
-        this.symbol = new WeatherSymbol(50,50);
+    public WetterAnsicht() {
+        this.painter = new DirtyPainter();
+        this.symbol = new WeatherSymbol(50, 50);
         painter.add(symbol);
         painter.showDrawing();
     }
 
     public void propertyChange(PropertyChangeEvent evt) {
-        String comp = (String)evt.getNewValue();
-        switch (comp) {
-            case "SONNIG":
-                symbol.changeToSunny();
-                painter.showDrawing();
-                break;
-            case "WOLKIG":
-                symbol.changeToCloudy();
-                painter.showDrawing();
-                break;
-            case "REGEN":
-                symbol.changeToRain();
-                painter.showDrawing();
-                break;
-            case "GEWITTER":
-                symbol.changeToTempest();
-                painter.showDrawing();
-                break;
-            case "BEDECKT":
-                symbol.changeToOvercast();
-                painter.showDrawing();
-                break;
+        String comp = (String) evt.getNewValue();
+        if (comp.equals(WetterZustand.SONNIG.name())) {
+            symbol.changeToSunny();
+            painter.showDrawing();
+        }
+        if (comp.equals(WetterZustand.WOLKIG.name())) {
+            symbol.changeToCloudy();
+            painter.showDrawing();
+        }
+        if (comp.equals(WetterZustand.REGEN.name())) {
+            symbol.changeToRain();
+            painter.showDrawing();
+        }
+        if (comp.equals(WetterZustand.GEWITTER.name())) {
+            symbol.changeToTempest();
+            painter.showDrawing();
+        }
+        if (comp.equals(WetterZustand.BEDECKT.name())) {
+            symbol.changeToOvercast();
+            painter.showDrawing();
         }
     }
 }
