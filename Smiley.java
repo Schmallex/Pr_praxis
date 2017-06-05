@@ -6,9 +6,7 @@ import sun.swing.PrintColorUIResource;
 
 import java.awt.*;
 
-/**
- * Created by Alex on 30.05.2017.
- */
+
 public class Smiley implements Drawable {
 
     protected int durchmesser;
@@ -81,6 +79,7 @@ public class Smiley implements Drawable {
         int  starty=y;
         g.fillOval(startx,starty,durchmesser,radius/2);
         g.fillRect(startx+radius/2,starty-radius/2-radius/4,radius,radius);
+        g.setColor(c);
     }
 
     public void moveRelativ(int dx,int dy){
