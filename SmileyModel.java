@@ -1,7 +1,8 @@
-package a09;
+package a10;
 
 
 
+import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
@@ -28,16 +29,16 @@ public class SmileyModel  {
     }
 
 
-    public void addPropertyChangeListener(SmileyView view) {
-        support.addPropertyChangeListener(view);
+    public void addPropertyChangeListener(PropertyChangeListener listen) {
+        support.addPropertyChangeListener(listen);
     }
 
-    public void removePropertyChangeListener(SmileyView view) {
+    public void removePropertyChangeListener(FirstSmileyPanel view) {
         support.removePropertyChangeListener(view);
     }
 
-    protected void zustandAendern() {
-        support.firePropertyChange("MODEL_UPDATE", "EVENT","EVENTE");
+    protected void zustandAendern(Object parameter) {
+        support.firePropertyChange("MODEL_UPDATE", "EVENT",parameter);
     }
 
     public void moveRelativ(int dx, int dy) {
@@ -56,12 +57,12 @@ public class SmileyModel  {
 
     public void setSmile(boolean smile) {
         this.smile = smile;
-        zustandAendern();
+        zustandAendern(smile);
     }
 
     public void setDegree(double degree) {
         this.degree = degree;
-        zustandAendern();
+        zustandAendern(degree);
     }
 
 
