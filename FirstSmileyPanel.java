@@ -1,7 +1,5 @@
 package a10;
 
-import schimkat.berlin.lernhilfe2017ss.graphics.DirtyPainter;
-import schimkat.berlin.lernhilfe2017ss.graphics.Drawable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,8 +9,9 @@ import java.beans.PropertyChangeListener;
 /**
  * Created by Alex on 06.06.2017.
  */
+
 public class FirstSmileyPanel extends JPanel implements PropertyChangeListener {
-    protected SmileyModel model ;
+    protected SmileyModel model;
     protected int durchmesser;
     protected boolean smiley;
     protected double degree;
@@ -20,27 +19,25 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener {
     protected int y;
     protected int radius;
 
-    public FirstSmileyPanel(SmileyModel model ){
+    public FirstSmileyPanel(SmileyModel model) {
 
-        this.model=model;
+        this.model = model;
         this.durchmesser = model.getDurchmesser();
-        this.smiley= model.getSmile();
-        this.x=model.getX();
-        this.y=model.getY();
-        this.degree=model.getDegree();
-        this.radius=durchmesser/2;
-
+        this.smiley = model.getSmile();
+        this.x = model.getX();
+        this.y = model.getY();
+        this.degree = model.getDegree();
+        this.radius = durchmesser / 2;
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        if(evt.getPropertyName().equals("MODEL_UPDATE")){
+        if (evt.getPropertyName().equals("MODEL_UPDATE")) {
             this.durchmesser = model.getDurchmesser();
-            this.smiley= model.getSmile();
-            this.degree=model.getDegree();
-            this.x=model.getX();
-            this.y=model.getY();
-            this.radius=durchmesser/2;
+            this.smiley = model.getSmile();
+            this.degree = model.getDegree();
+            this.x = model.getX();
+            this.y = model.getY();
             repaint();
         }
     }

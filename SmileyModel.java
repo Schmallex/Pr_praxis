@@ -1,14 +1,13 @@
 package a10;
 
 
-
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 /**
  * Created by Alex on 30.05.2017.
  */
-public class SmileyModel  {
+public class SmileyModel {
 
     protected int durchmesser;
     protected boolean smile;
@@ -25,7 +24,7 @@ public class SmileyModel  {
         this.x = x;
         this.y = y;
         this.radius = durchmesser / 2;
-        this.support=new PropertyChangeSupport((this));
+        this.support = new PropertyChangeSupport((this));
     }
 
 
@@ -33,26 +32,29 @@ public class SmileyModel  {
         support.addPropertyChangeListener(listen);
     }
 
-    public void removePropertyChangeListener(FirstSmileyPanel view) {
-        support.removePropertyChangeListener(view);
+    public void removePropertyChangeListener(PropertyChangeListener listen) {
+        support.removePropertyChangeListener(listen);
     }
 
-    protected void zustandAendern(Object parameter) {
-        support.firePropertyChange("MODEL_UPDATE", "EVENT",parameter);
+    private void zustandAendern(Object parameter) {
+        support.firePropertyChange("MODEL_UPDATE", "EVENT", parameter);
     }
 
     public void moveRelativ(int dx, int dy) {
         this.x = x + dx;
         this.y = y + dy;
+        zustandAendern(x);
     }
 
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
+        zustandAendern(x);
     }
 
     public void setDurchmesser(int durchmesser) {
         this.durchmesser = durchmesser;
+        zustandAendern(durchmesser);
     }
 
     public void setSmile(boolean smile) {
@@ -74,15 +76,15 @@ public class SmileyModel  {
         return degree;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public int getDurchmesser(){
+    public int getDurchmesser() {
         return durchmesser;
     }
 
