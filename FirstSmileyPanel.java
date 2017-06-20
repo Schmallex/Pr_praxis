@@ -38,6 +38,7 @@ public class FirstSmileyPanel extends JPanel implements PropertyChangeListener {
             this.degree = model.getDegree();
             this.x = model.getX();
             this.y = model.getY();
+            this.durchmesser = radius/2;
             repaint();
         }
     }
